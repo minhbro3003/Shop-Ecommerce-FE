@@ -54,7 +54,7 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "https://ecommerce-be-409j.onrender.com",
+    "proxy": "https://shop-ecommerce-be-jwyq.onrender.com",
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
     }
