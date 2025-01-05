@@ -40,9 +40,10 @@ const DetailsOrderPage = () => {
 
     const priceMemo = useMemo(() => {
         const result = data?.orderItems?.reduce((total, cur) => {
-            return total + cur.price * cur.amount * (1 - cur.discount / 100);
+            const discount = cur.discount ?? 0; // Đặt discount mặc định là 0 nếu không có giá trị
+            return total + cur.price * cur.amount * (1 - discount / 100);
         }, 0);
-        return result;
+        return result || 0; // Đảm bảo trả về 0 nếu result là undefined hoặc null
     }, [data]);
 
     return (
@@ -91,7 +92,7 @@ const DetailsOrderPage = () => {
                                 </div>
                                 <div className="delivery-fee">
                                     <span>Phí giao hàng: </span>{" "}
-                                    {data?.shippingPrice}
+                                    {convertPrice(data?.shippingPrice)}
                                 </div>
                             </WrapperContentInfo>
                         </WrapperInfoUser>

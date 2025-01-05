@@ -42,7 +42,7 @@ const OrderPage = () => {
         discount: item.discount,
         quantity: item.amount,
         countInStock: item.countInStock,
-        total: item.amount * item.price * (1 - item.discount / 100),
+        total: item.amount * item.price * (1 - (item.discount ?? 0) / 100), // Xử lý discount mặc định
     }));
     console.log("cartData: ", order);
 
